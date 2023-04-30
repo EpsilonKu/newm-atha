@@ -1,5 +1,5 @@
 {
-  description = "newm - Wayland compositor";
+  description = "newm-atha - a touchpad/touchscreen centric wayland compositor";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
