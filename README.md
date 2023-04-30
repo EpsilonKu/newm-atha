@@ -70,7 +70,7 @@ As of now, Arch users should install with pip.
 
 ### NixOS
 
-#### via flakes
+flakes are probably the easiest way to do this.
 
 ```sh
 nix build "sourcehut:~atha/newm-atha#newm-atha"
@@ -79,12 +79,16 @@ nix build "sourcehut:~atha/newm-atha#newm-atha"
 
 Note that this probably does not work outside nixOS. To fix OpenGL issues on other
 linux distros using nix as a (secondary) package manager, see
-[nixGL](https://github.com/guibou/nixGL). Additionally, PAM authentication appears
-to be broken in this setup.
+[nixGL](https://github.com/guibou/nixGL). 
+
+Known issues
+-------------
+
+PAM authentication appears to be broken in this setup.
 
 ### Installing with pip
 
-[pywm](https://git.sr.ht/~atha/pywm-atha) is the abstraction layer for and main dependency of newm-atha. If all prerequisites are installed, the command:
+[pywm-atha](https://git.sr.ht/~atha/pywm-atha) is the  main dependency of newm-atha. If all prerequisites are installed, the command:
 
 ```sh
 pip3 install --user git+https://git.sr.ht/~atha/pywm-atha
@@ -162,7 +166,8 @@ pywm = {
 
 ### Configuring
 
-The configuration works by evaluating the python config file and extracting the variables which the file exports. So basically you can do whatever you please to provide the configuration values, this is why certain config elements are callbacks. Some elements are hierarchical, to set these use Python dicts - e.g. for `x.y`:
+The configuration works by evaluating the python config file and extracting the variables which the file exports. So basically you can do whatever you please to provide the configuration values,
+hence why certain config elements are callbacks. Some elements are hierarchical, to set these use Python dicts - e.g. for `x.y`:
 
 ```py
 x = {
@@ -174,7 +179,7 @@ The configuration can be dynamically updated (apart from a couple of fixed keys)
 
 See [config](./doc/config.md) for a documentation on all configurable values.
 
-Be aware that functions (as in keybindings, `on_startup`, ...) are run synchronously in the compositor thread. Blocking there will block the whole system.
+BEWARE that functions (as in keybindings, `on_startup`, ...) are run **synchronously** in the compositor thread.
 
 ### Troubleshooting: Touchpad
 
@@ -187,13 +192,13 @@ evtest
 
 This is a required prerequisite to use the python-side (smoother) gestures. C-side or DBus gestures do not require this.
 
-As a sidenote, this is not necessary for a Wayland compositor in general as the devices can be accessed through `systemd-logind` or `seatd` or similar.
+As a side note, this is not necessary for a Wayland compositor in general as the devices can be accessed through `systemd-logind` or `seatd` or similar.
 However the python `evdev` module does not allow instantiation given a file descriptor (only a path which it then opens itself),
 so usage of that module would no longer be possible in this case (plus at first sight there is no easy way of getting that file descriptor to the 
 Python side). Also `wlroots` (`libinput` in the backend) does not expose touchpads as what they are (`touch-down`, `touch-up`, `touch-motion` for any
 number of parallel slots), but only as pointers (`motion` / `axis`), so gesture detection around `libinput`-events is not possible as well.
 
-Therefore, we're stuck with the less secure (and a lot easier) way of using the (probably named `input`) group.
+Therefore, we're stuck with the less secure (and a lot easier) way of using the group (probably) named `input`.
 
 ## Next steps
 
@@ -215,16 +220,11 @@ Therefore, we're stuck with the less secure (and a lot easier) way of using the 
 - `newm-cmd debug` prints out some debug info on the current state of views
 - `newm-cmd unlock` unlocks the compositor (if explicitly enabled in config) - this is useful in case you have trouble setting up the lock screen.
 
-### Using newm for login
+### Logging straight into newm for-atha (greetd) 
 
-This setup depends on [greetd](https://git.sr.ht/~kennylevinsen/greetd). Make sure to install newm as well as pywm and a newm panel in a way in which the greeter-user has access, i.e. either form the AUR, or e.g.:
+Make sure to install newm-atha as well as pywm-atha and a newm panel in a way in which the `greeter` user has access.
 
-```sh
-sudo pip3 install git+https://git.sr.ht/~atha/newm-atha
-sudo pip3 install git+https://git.sr.ht/~atha/pywm-atha
-```
-
-Place configuration in `/etc/newm/config.py` and check, after logging in as `greeter`, that `start-newm` works and shows the login panel (login itself should not work). If it works, set
+Place newm-atha configuration in `/etc/newm/config.py` and check, after logging in as `greeter`, that `start-newm` works and shows the login panel (login itself should not work). If it works, set
 
 ```toml
 command = "start-newm"
