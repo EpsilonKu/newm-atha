@@ -6,7 +6,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    pywmpkg.url = "github:jbuchermn/pywm";
+    pywmpkg.url = "sourcehut:~atha/pywm-atha";
     pywmpkg.inputs.nixpkgs.follows = "nixpkgs";
     pywmpkg.inputs.flake-utils.follows = "flake-utils";
   };
@@ -58,15 +58,15 @@
       };
     in
     {
-      packages.newm =
+      packages.newm-atha =
         pkgs.python3.pkgs.buildPythonApplication rec {
           pname = "newm";
-          version = "0.3alpha";
+          version = "0.4alpha";
 
           src = ./.;
 
           propagatedBuildInputs = with pkgs.python3Packages; [
-            pywm
+            pywm-atha
 
             pycairo
             psutil
