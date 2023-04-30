@@ -1,18 +1,19 @@
-# newm
-
-[![License](https://img.shields.io/github/license/jbuchermn/newm)](LICENSE)
-[![AUR](https://img.shields.io/aur/version/newm-git)](https://aur.archlinux.org/packages/newm-git)
-[![Join the chat at https://gitter.im/jbuchermn-newm/community](https://badges.gitter.im/jbuchermn-newm/community.svg)](https://gitter.im/jbuchermn-newm/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# newm (~atha edition)
 
 [![IMAGE](https://github.com/jbuchermn/newm/blob/master/newm/resources/screenshot.png)](https://youtu.be/4I_IHbP-iNQ)
 
 ## Current state
 
-Unfortunately I no longer have time to spend on this project. So, newm is currently unmaintained.
+Unfortunately, the orignal author of newm, jbuchermn no longer has the time to maintain this project.
+
+I have been contributing to this project( @Pandademic on github, if you need proof), and have decided to fork it here for the sake of keeping it alive and maintained.
+
+This IS a fork, and is reflected as such in [./LICENSE](./LICENSE)
+
 
 ## Idea
 
-**newm** is a Wayland compositor written with laptops and touchpads in mind. The idea is, instead of placing windows inside the small viewport (that is, the monitor) to arrange them along an arbitrarily large two-dimensional wall (generally without windows overlapping) and focus the compositors job on moving around along this wall efficiently and providing ways to the user to rearrange the wall such that they find the overall layout intuitive.
+**newm-atha** is a Wayland compositor written with laptops and touchpads in mind. The idea is, instead of placing windows inside the small viewport (that is, the monitor) to arrange them along an arbitrarily large two-dimensional wall (generally without windows overlapping) and focus the compositors job on moving around along this wall efficiently and providing ways to the user to rearrange the wall such that they find the overall layout intuitive.
 
 So, windows are placed on a two-dimensional grid of tiles taking either one by one, one by two, two by one, ... tiles of that grid. The compositor shows a one by one, two by two, ... view of that grid but scales the windows so they are usable on any zoom level (that is, zooming out the compositor actually changes the windows sizes). This makes for example switching between a couple of fullscreen applications very easy - place them in adjacent one by one tiles and have the compositor show a one by one view. And if you need to see them in parallel, zoom out. Then back in, and so on...
 
@@ -40,34 +41,39 @@ These behaviours can (partly) be configured (see below for setup). By default (c
 
 ## Roadmap
 
-v0.3 has been merged into master, new features include
+the current master branch is/was jbuchermn's 0.3 release, as a wip.
 
-- [x] Improve panel functionality
-- [X] Better bars
-  - [X] Support always-present top and bottom bars
-  - [ ] Slide in bars
-- [x] Borders
-  - [x] Draw borders around some floating windows (quite ugly floating windows on v0.2)
-  - [x] Possibly highlight focused window using a border
-- [x] Enable window swallowing
-- [X] Blurred window backgrounds
-- [X] Better key bindings
-- [X] DBus gestures
-- [ ] Better window stacking
+In honor of his efforts, the next release will be 0.4, built of from here.
+
+Goals include:
+
+- [ ] get the touchscreen patches to work with this version
+- [ ] hike to latest wlroots
+- [ ] MAYBE: fix up/update build system
+- [ ] investigate various bugs that have been filed
+- [ ] get newm to build without having ugly wlroots errors sometimes.
+
 
 
 ## Installing
 
 ### Arch Linux
 
-- [Install on Arch linux](doc/install_Arch_Linux.md)
+~~[Install on Arch linux](doc/install_Arch_Linux.md)~~
+
+The AUR package reflects jbuchermn's newm, there is no AUR for this fork.
+
+Please reach out if you have a PKGBUILD.
+
+As of now, Arch users should install with pip.
+
 
 ### NixOS
 
-Install via flakes (see also [dotfiles-nix](https://github.com/jbuchermn/dotfiles-nix)):
+#### via flakes
 
 ```sh
-nix build "github:jbuchermn/newm#newm"
+nix build "sourcehut:~atha/newm-atha#newm-atha"
 ./result/bin/start-newm -d
 ```
 
@@ -78,23 +84,23 @@ to be broken in this setup.
 
 ### Installing with pip
 
-[pywm](https://github.com/jbuchermn/pywm) is the abstraction layer for and main dependency of newm. If all prerequisites are installed, the command:
+[pywm](https://git.sr.ht/~atha/pywm-atha) is the abstraction layer for and main dependency of newm-atha. If all prerequisites are installed, the command:
 
 ```sh
-pip3 install --user git+https://github.com/jbuchermn/pywm
+pip3 install --user git+https://git.sr.ht/~atha/pywm-atha
 ```
 
-should suffice.Additionally, unless configured otherwise, newm depends on alacritty for a default terminal emulator.
+should suffice.Additionally, unless configured otherwise, newm-atha uses alacritty as its default terminal.
 
 To install newm:
 
 ```sh
-pip3 install --user git+https://github.com/jbuchermn/newm
+pip3 install --user git+https://git.sr.ht/~atha/newm-atha
 ```
 
 Installing newm this way means it cannot be used as a login manager, as it can only be started by your current user (see below)
 
-### Starting and tests
+### Usage
 
 Start newm using
 
@@ -214,8 +220,8 @@ Therefore, we're stuck with the less secure (and a lot easier) way of using the 
 This setup depends on [greetd](https://git.sr.ht/~kennylevinsen/greetd). Make sure to install newm as well as pywm and a newm panel in a way in which the greeter-user has access, i.e. either form the AUR, or e.g.:
 
 ```sh
-sudo pip3 install git+https://github.com/jbuchermn/pywm
-sudo pip3 install git+https://github.com/jbuchermn/newm
+sudo pip3 install git+https://git.sr.ht/~atha/newm-atha
+sudo pip3 install git+https://git.sr.ht/~atha/pywm-atha
 ```
 
 Place configuration in `/etc/newm/config.py` and check, after logging in as `greeter`, that `start-newm` works and shows the login panel (login itself should not work). If it works, set
