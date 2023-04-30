@@ -41,17 +41,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1666033148,
-        "narHash": "sha256-KNaTXo2ZDPFVYH7JBogV5z1M39KiNyMAH2cQSrLa7fs=",
-        "owner": "jbuchermn",
-        "repo": "pywm",
-        "rev": "f20828d8c29dc430cf6d1e59e4fdf92dc3caf36a",
-        "type": "github"
+        "lastModified": 1682894696,
+        "narHash": "sha256-cAK9c8LsmqDvMVFnwUCFAOThzHWKVsVL3YzJEMWaa54=",
+        "owner": "~atha",
+        "repo": "pywm-atha",
+        "rev": "63695a57c220b4c93aa52ea9339778672dc38a87",
+        "type": "sourcehut"
       },
       "original": {
-        "owner": "jbuchermn",
-        "repo": "pywm",
-        "type": "github"
+        "owner": "~atha",
+        "repo": "pywm-atha",
+        "type": "sourcehut"
       }
     },
     "root": {

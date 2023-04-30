@@ -21,7 +21,7 @@
           (self: super: rec {
             python3 = super.python3.override {
               packageOverrides = self1: super1: {
-                pywm = pywmpkg.packages.${system}.pywm;
+                pywm-atha = pywmpkg.packages.${system}.pywm-atha;
                 dasbus = super1.buildPythonPackage rec {
                   pname = "dasbus";
                   version = "1.6";
