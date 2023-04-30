@@ -60,7 +60,7 @@
     {
       packages.newm-atha =
         pkgs.python3.pkgs.buildPythonApplication rec {
-          pname = "newm";
+          pname = "newm-atha";
           version = "0.4alpha";
 
           src = ./.;
