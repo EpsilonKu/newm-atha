@@ -8,17 +8,24 @@ done
 DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 
-LOGDIR="$HOME/.cache"
+LOGDIR="$HOME/.cache/newm"
 mkdir -p $LOGDIR || LOGDIR="/tmp"
 
 pushd $LOGDIR
-if [ -e newm_log_bu1 ]
-    then cp newm_log_bu1 newm_log_bu2
-fi
-if [ -e newm_log ]
-    then cp newm_log newm_log_bu1
-fi
+
 popd
 
-echo "newm - script dir is $DIR, log dir is $LOGDIR, arguments are $@"
-exec $DIR/.start-newm "$@" > $LOGDIR/newm_log 2>&1
+args = $@
+
+echo "newm-atha version 0.4 ALPHA"
+echo "script dir is $DIR"
+echo "log dir is $LOGDIR"
+if [ ${#args[@]} -eq 0 ]; then
+    echo "no arguments provided"
+else
+    echo "arguments are: $@"
+fi
+
+epoch = $(date +%s)
+
+exec $DIR/.start-newm "$args" > $LOGDIR/newm_log.$epoch 2>&1
