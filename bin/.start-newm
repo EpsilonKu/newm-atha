@@ -4,10 +4,16 @@ import argparse
 
 from newm import run
 
-print("newm python - args are %s" % str(sys.argv), flush=True)
+print("newm-atha: hello there!")
+print("newm-atha: .start-newm args recived %s" % str(sys.argv), flush=True)
+
+class BetterArgParses(argparse.ArgumentParser):
+    def error(self,m):
+            sys.stderr.write('newm-atha: .start-newm script has encountred a parse error: %s\n' % m)
+            sys.exit(2)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-d", "--debug", action="store_true")
+parser.add_argument("-d", "--debug", action="store_true",default=False)
 parser.add_argument("-p", "--profile", action="store_true")
 parser.add_argument("-c", "--config-file", type=str, default=None)
 
