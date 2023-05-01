@@ -95,8 +95,8 @@ panels = {
         'native': {
             'enabled': True,
             'texts': lambda: [
-                "newm",
-                "powered by pywm"
+                "newm-atha",
+                "version 0.4 ALPHA"
             ],
         }
     },
