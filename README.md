@@ -112,8 +112,10 @@ Start newm using
 start-newm -d
 ```
 
-`-d` is the debug flag and gives more output to `$HOME/.cache/newm/newm_log.${time in seconds since unix epoch}`, which is the default log location.
+it will log to `$HOME/.cache/newm/newm_log`, if this file exists, it will move it to `$HOME/.cache/newm/newm_log.old.$year-$month-$day-$epoch`(the timestamps of its last edit)
 
+you can use the `-d` flag for a more verbose, debug-y output.
+you can use the `-c` flag to point it toward a config file.
 
 ## Configuration
 

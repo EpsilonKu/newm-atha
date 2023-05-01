@@ -11,6 +11,15 @@ DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 LOGDIR="$HOME/.cache/newm"
 mkdir -p $LOGDIR || LOGDIR="/tmp"
 
+pushd  $LOGDIR
+if [-e newm_log];then
+  format=$(date -r newm_log +"%Y-%m-%d-%s")
+  mv newm_log  newm_log.old.$format
+
+fi
+
+popd
+
 args=$@
 
 echo "newm-atha version 0.4 ALPHA"
@@ -22,6 +31,4 @@ else
     echo "arguments are: $@"
 fi
 
-epoch=$(date +%s)
-
-exec $DIR/.start-newm "$args" > $LOGDIR/newm_log.$epoch 2>&1
+exec $DIR/.start-newm "$args" > $LOGDIR/newm_log 2>&1
