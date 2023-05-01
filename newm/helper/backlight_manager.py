@@ -4,6 +4,7 @@ from typing import Optional
 import logging
 import time
 import os
+import sys
 
 from .execute import execute
 from .bar_display import BarDisplay
@@ -12,6 +13,8 @@ logger = logging.getLogger(__name__)
 
 class BacklightManager:
     def __init__(self, args: str="", dim_factors: tuple[float, float]=(0.5, 0.33), anim_time: float=0.3, bar_display: Optional[BarDisplay]=None) -> None:
+        sys.tracebacklimit = 0
+
         self._args = args
         self._dim_factors = dim_factors
         self._anim_time = anim_time
