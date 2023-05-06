@@ -2,11 +2,11 @@
 
 ## With the aur
 
-The easiest and safest way to install newm is by using its AUR package.
+The easiest and safest way to install newm-atha on Arch is by using its AUR package.
 
 example:
 ```sh
-yay -S newm-git
+yay -S newm-atha-git
 ```
 (subsitute `yay` with your aur helper,eg: `paru`)
 
@@ -20,20 +20,20 @@ Maybe you want to test features in development or help with debugging, whatever 
 1. Clone PKBUILD
 
 ```sh
-yay -G newm-git
+yay -G newm-atha-git
 ```
 
 2. Navigate to the downloaded folder
 
 ```sh
-cd newm-git
+cd newm-atha-git
 ```
 
 3. Clone pywm and newm
 
 ```sh
-git clone https://github.com/jbuchermn/pywm.git --branch=<any branch or tag>
-git clone https://github.com/jbuchermn/newm.git --branch=<any branch or tag>
+git clone https://git.sr.ht/~atha/pywm-atha.git --branch=<any branch or tag>
+git clone https://git.sr.ht/~atha/newm-atha.git --branch=<any branch or tag>
 ```
 
 4. Build and install
@@ -48,8 +48,8 @@ makepkg -sic
 
 ### `start-newm -d` core dumps as soon as it is started!
   - **Q:** I started newm with  `start-newm -d` and it core dumped!
-  - **A:** try installing polkit(`pacman -S polkit`). I can't explain it, but it has fixed my issues in the past.
+  - **A:** try installing polkit(`pacman -S polkit`). We can't explain it, but it has fixed issues in the past.
   - **Q:** What if it still doesn't work?
-  - **A:** Open an [issue](https://github.com/jbuchermn/newm/issues/new) and post your log.
+  - **A:** Open a [ticket](https://todo.sr.ht/~atha/newm-atha) and post your log.
 
 

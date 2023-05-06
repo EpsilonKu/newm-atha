@@ -59,13 +59,11 @@ Goals include:
 
 ### Arch Linux
 
-~~[Install on Arch linux](doc/install_Arch_Linux.md)~~
+[Install on Arch linux](doc/install_Arch_Linux.md)
 
-The AUR package reflects jbuchermn's newm, there is no AUR for this fork.
+There is a AUR package, `newm-atha-git`.
 
-Please reach out if you have a PKGBUILD.
-
-As of now, Arch users should install with pip.
+This however is not maintained by me, but instead by [Diego Aguilar](https://github.com/CRAG666).
 
 
 ### NixOS
@@ -233,3 +231,12 @@ command = "start-newm"
 ```
 
 in `/etc/greetd/config.toml`.
+
+
+## Credits
+
+Thank you to:
+
+- jbuchermn for starting newm
+- Diego Aguilar for maintaing the AUR package and all the support and help you gave newm
+- and all the other contributors to both newm and newm-atha!
