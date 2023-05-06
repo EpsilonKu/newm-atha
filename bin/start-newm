@@ -12,7 +12,7 @@ LOGDIR="$HOME/.cache/newm"
 mkdir -p $LOGDIR || LOGDIR="/tmp"
 
 pushd  $LOGDIR
-if [-e newm_log];then
+if  [ -e newm_log ];then
   format=$(date -r newm_log +"%Y-%m-%d-%s")
   mv newm_log  newm_log.old.$format
 
