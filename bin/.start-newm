@@ -4,21 +4,47 @@ import argparse
 
 from newm import run
 
+no_args = False
+
+args = sys.argv
+
+args.pop(0)
+
 print("newm-atha: hello there!")
-print("newm-atha: .start-newm args recived %s" % str(sys.argv), flush=True)
+print("newm-atha: .start-newm args recived: ",args)
 
-class BetterArgParses(argparse.ArgumentParser):
-    def error(self,m):
-            sys.stderr.write('newm-atha: .start-newm script has encountred a parse error: %s\n' % m)
-            sys.exit(2)
+if(len(args) == 1):
+    print("newm-atha: [WARN] no arguments provided")
+    no_args = True
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-d", "--debug", action="store_true",default=False)
-parser.add_argument("-p", "--profile", action="store_true")
-parser.add_argument("-c", "--config-file", type=str, default=None)
+debug = False
+profile = False
+config_file = None
 
-args = parser.parse_args()
+if(no_args != True):
+    if('-d' or '--debug' in args):
+        debug = True
+        if '-d' in args:
+            args.remove('-d')
+        else:
+            args.remove('--debug')
 
-print(args)
+    if('-p' or '--profile' in args):
+        profile = True
+        if '-p' in args:
+            args.remove('-p')
+        else:
+            args.remove('--profile')
 
-run(args.debug, args.profile, args.config_file)
+    if('-c' or '--config' in args):
+        if '-c' in args:
+            args.remove('-c')
+        else:
+            args.remove('--config')
+
+        config_file = args[0]
+
+
+
+
+run(debug, profile, config_file)
