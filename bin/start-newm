@@ -25,7 +25,7 @@ args=$@
 echo "newm-atha version 0.4 ALPHA"
 echo "script dir is $DIR"
 echo "log dir is $LOGDIR"
-if [ ${#args[@]} -eq 0 ]; then
+if [ $# -eq 0 ]; then
     echo "no arguments provided"
 else
     echo "arguments are: $@"
