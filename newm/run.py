@@ -15,8 +15,9 @@ logger = logging.getLogger(__name__)
 
 def run(debug: bool=False, profile: bool=False, config_file: Optional[str]=None) -> None:
     handler = logging.StreamHandler()
-    formatter = logging.Formatter('[%(levelname)s] %(filename)s:%(lineno)s %(asctime)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-
+    formatter = logging.Formatter('[(%levelname)s] %(asctime)s: %(message)s', datefmt='%Y-%m-%d %H:%M-%S')
+    if debug:
+        formatter = logging.Formatter('[%(levelname)s] %(filename)s:%(lineno)s %(asctime)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     handler.setLevel(logging.DEBUG if debug else logging.INFO)
     handler.setFormatter(formatter)
 
