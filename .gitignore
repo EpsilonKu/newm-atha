@@ -4,3 +4,8 @@ newm.egg-info
 newm/resources/*.mp4
 build/
 result
+
+# emacs stuffff
+*~
+\#*\#
+.\#*

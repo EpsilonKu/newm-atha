@@ -33,6 +33,19 @@ class Command:
             if args_dict['cmd'] == 'launcher':
                 self.layout.launch_app(args_dict['app'])
                 res_dict = { 'msg': 'OK' }
+            elif args_dict['cmd'] == 'current-window-title':
+                w = self.layout.find_focused_window()
+                if not w.is_present():
+                    res_dict = {'msg':'no focused window'}
+                res_dict = {'msg': w._handle}
+            elif args_dict['cmd'] == 'current-window-ssd':
+                w = self.layout.find_focused_window()
+                if not w.is_present():
+                     res_dict = {'msg':'no focused window'}
+                __res = False if not w._ssd.is_present() else True
+                res_dict = {'msg': str(__res)}
+            elif args_dict['cmd'] == 'current-workspace-num':
+               res_dict = {'msg':str(self.layout.get_active_workspace._handle)}
             else:
                 res_dict = { 'msg': str(self.layout.command(args_dict['cmd'], args_dict['arg'] if 'arg' in args_dict else None)) }
             return json.dumps(res_dict)
