@@ -34,15 +34,15 @@ class Command:
                 self.layout.launch_app(args_dict['app'])
                 res_dict = { 'msg': 'OK' }
             elif args_dict['cmd'] == 'current-window-title':
-                w = self.layout.find_focused_window()
-                if not w.is_present():
+                w = self.layout.find_focused_view()
+                if w is None:
                     res_dict = {'msg':'no focused window'}
-                res_dict = {'msg': w._handle}
+                res_dict = {'msg': w.title}
             elif args_dict['cmd'] == 'current-window-ssd':
                 w = self.layout.find_focused_window()
-                if not w.is_present():
+                if w is None:
                      res_dict = {'msg':'no focused window'}
-                __res = False if not w._ssd.is_present() else True
+                __res = False if w._ssd  == None else True
                 res_dict = {'msg': str(__res)}
             elif args_dict['cmd'] == 'current-workspace-num':
                res_dict = {'msg':str(self.layout.get_active_workspace._handle)}
