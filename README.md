@@ -48,10 +48,10 @@ In honor of his efforts, the next release will be 0.4, built of from here.
 Goals include:
 
 - [ ] get the touchscreen patches to work with this version
-- [ ] hike to latest wlroots
+- [x] hike to latest wlroots
 - [ ] MAYBE: fix up/update build system
-- [ ] investigate various bugs that have been filed
-- [ ] get newm to build without having ugly wlroots errors sometimes.
+- [x] investigate various bugs that have been filed
+- [x] get newm to build without having ugly wlroots errors sometimes.
 
 
 
