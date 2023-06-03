@@ -1,5 +1,8 @@
 # newm (~atha edition)
 
+## annoucment
+come talk to us on [discord](https://discord.gg/GnCsYRWtBq)!
+
 [![IMAGE](https://github.com/jbuchermn/newm/blob/master/newm/resources/screenshot.png)](https://youtu.be/4I_IHbP-iNQ)
 
 ## Current state
