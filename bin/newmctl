@@ -56,6 +56,18 @@ commands: dict[str, tuple[str, dict[str, str]]] = {
         "Open new app",
         {"app": "newm-cmd launcher <app>"},
         ),
+    "current-window-title": (
+        "returns currently focused window's title",
+        {}
+    ),
+    "current-window-ssd": (
+        "returns True if there is ssd for a window and False if it is decorating itself",
+        {}
+    ),
+    "current-workspace-num": (
+        "returns the current workspace number",
+        {}
+    ),
 }
 
 
