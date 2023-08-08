@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=newm
-Comment=A scrolling Wayland compositor
+Name=newm-atha
+Comment=A touchpad and touchscreen focused wayland compositor
 Exec=start-newm
 Type=Application
