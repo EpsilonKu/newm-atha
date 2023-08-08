@@ -98,7 +98,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         )
     else:
         raise NotImplementedError(
-            f"Command {args.command} does not exist, see: newm-cmd -h.",
+            f"Command {args.command} does not exist, see: newmctl -h.",
         )
 
     return 0
