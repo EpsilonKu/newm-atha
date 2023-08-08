@@ -3,7 +3,7 @@
 ## annoucment
 come talk to us on [discord](https://discord.gg/GnCsYRWtBq)!
 
-[![IMAGE](https://github.com/jbuchermn/newm/blob/master/newm/resources/screenshot.png)](https://youtu.be/4I_IHbP-iNQ)
+[video couteresy of Audrick Yeu](https://www.youtube.com/watch?v=IkriZGyjoeU), used with permission.
 
 ## Current state
 
