@@ -182,7 +182,7 @@ The configuration can be dynamically updated (apart from a couple of fixed keys)
 
 See [config](./doc/config.md) for a documentation on all configurable values.
 
-BEWARE that functions (as in keybindings, `on_startup`, ...) are run **synchronously** in the compositor thread.
+**BEWARE that functions (as in keybindings, `on_startup`, ...) are run synchronously in the compositor thread.**
 
 ### Troubleshooting: Touchpad
 
@@ -240,6 +240,7 @@ in `/etc/greetd/config.toml`.
 
 Thank you to:
 
-- jbuchermn for starting newm
+- Jonas Bucher for starting newm
 - Diego Aguilar for maintaing the AUR package and all the support and help you gave newm
+- Audrick Yeu for the amazing insight on the project, countless amount of time spent on improving the experience of users, and for the lovely readme video!
 - and all the other contributors to both newm and newm-atha!
